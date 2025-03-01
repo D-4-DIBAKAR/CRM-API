@@ -9,7 +9,7 @@ import {
 import { CustomError } from "../utils/customError";
 import { AuthRequest } from "../middlewares/auth";
 
-//  Create Customer
+// ✅ Create Customer
 export const createCustomer = async (req: Request, res: Response) => {
     try {
         const customer = await createCustRepo(req.body);
@@ -20,7 +20,7 @@ export const createCustomer = async (req: Request, res: Response) => {
     }
 };
 
-//  Get All Customers
+// ✅ Get All Customers
 export const getCustomers = async (_req: Request, res: Response) => {
     try {
         const customers = await getCustRepo();
@@ -31,7 +31,7 @@ export const getCustomers = async (_req: Request, res: Response) => {
     }
 };
 
-//  Update Customer (Admin Only)
+// ✅ Update Customer (Admin Only)
 export const modifyCustomer = async (req: AuthRequest, res: Response) => {
     try {
         if (!req.user || req.user.role !== "admin") {
@@ -43,7 +43,7 @@ export const modifyCustomer = async (req: AuthRequest, res: Response) => {
             throw new CustomError("Customer ID is required", 400);
         }
 
-        //  Check if Customer Exists Before Updating
+        // ✅ Check if Customer Exists Before Updating
         const customer = await findCustomerById(id);
         if (!customer) {
             throw new CustomError("Customer not found", 404);
@@ -56,7 +56,7 @@ export const modifyCustomer = async (req: AuthRequest, res: Response) => {
     }
 };
 
-//  Delete Customer (Admin Only)
+// ✅ Delete Customer (Admin Only)
 export const removeCustomer = async (req: AuthRequest, res: Response) => {
     try {
         if (!req.user || req.user.role !== "admin") {
@@ -68,7 +68,7 @@ export const removeCustomer = async (req: AuthRequest, res: Response) => {
             throw new CustomError("Customer ID is required", 400);
         }
 
-        // Check if Customer Exists Before Deleting
+        // ✅ Check if Customer Exists Before Deleting
         const customer = await findCustomerById(id);
         if (!customer) {
             throw new CustomError("Customer not found", 404);

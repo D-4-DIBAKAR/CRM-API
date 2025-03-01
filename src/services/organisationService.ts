@@ -3,10 +3,11 @@ import {
     createOrganisation as createOrgRepo, getOrganisations as getOrgRepo, updateOrganisation, deleteOrganisation 
         , findOrganisationById
 } from "../repository/organisationRepository";
+
 import { AuthRequest } from "../middlewares/auth";
 import { CustomError } from "../utils/customError";
 
-//  Create Organisation (Admin Only)
+// ✅ Create Organisation (Admin Only)
 export const createOrganisation = async (req: AuthRequest, res: Response) => {
     try {
         if (!req.user || req.user.role !== "admin") {
@@ -19,7 +20,7 @@ export const createOrganisation = async (req: AuthRequest, res: Response) => {
     }
 };
 
-//  Get All Organisations (Any Authenticated User)
+// ✅ Get All Organisations (Any Authenticated User)
 export const getOrganisations = async (_req: Request, res: Response) => {
     try {
         const organisations = await getOrgRepo();
@@ -29,7 +30,7 @@ export const getOrganisations = async (_req: Request, res: Response) => {
     }
 };
 
-//  Update Organisation (Admin Only)
+// ✅ Update Organisation (Admin Only)
 export const modifyOrganisation = async (req: AuthRequest, res: Response) => {
     try {
         if (!req.user || req.user.role !== "admin") {
@@ -42,7 +43,7 @@ export const modifyOrganisation = async (req: AuthRequest, res: Response) => {
     }
 };
 
-//  Delete Organisation (Admin Only)
+// ✅ Delete Organisation (Admin Only)
 export const removeOrganisation = async (req: AuthRequest, res: Response) => {
     try {
         const { id } = req.params;
@@ -55,7 +56,7 @@ export const removeOrganisation = async (req: AuthRequest, res: Response) => {
             throw new CustomError("Organisation ID is required", 400);
         }
 
-        //  Check if Organisation Exists Before Deleting
+        // ✅ Check if Organisation Exists Before Deleting
         const organisation = await findOrganisationById(id);
         if (!organisation) {
             throw new CustomError("Organisation not found", 404);

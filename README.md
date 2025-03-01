@@ -126,3 +126,32 @@ CRM-API
 2. Set **Authorization** → `Bearer Token` from `/api/users/login`
 3. Test API endpoints using **correct role permissions**
 4. Check responses for **error handling & data validation**
+
+---
+
+## ⚖️ **License**
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 💡 **Contributions**
+
+✅ Fork the repo  
+✅ Create a new branch (`feature-name`)  
+✅ Commit changes (`git commit -m "Add new feature"`)  
+✅ Push to GitHub & create a **Pull Request**
+
+---
+
+## 🎯 **Future Enhancements**
+
+🚀 API Rate Limiting (to prevent abuse)  
+🚀 Unit Testing (Jest)  
+🚀 Admin Dashboard for managing data
+
+---
+
+## 📞 **Support**
+
+For queries, reach out via [GitHub Issues](https://github.com/D-4-DIBAKAR/CRM-API).
