@@ -1,7 +1,7 @@
 import { Organisation } from "../schemas/organisation";
 import mongoose from "mongoose";
 
-//  Create Organisation
+// ✅ Create Organisation
 export const createOrganisation = async (data: any) => {
     try {
         return await Organisation.create(data);
@@ -11,7 +11,7 @@ export const createOrganisation = async (data: any) => {
     }
 };
 
-//  Get All Organisations
+// ✅ Get All Organisations
 export const getOrganisations = async () => {
     try {
         return await Organisation.find();
@@ -21,7 +21,7 @@ export const getOrganisations = async () => {
     }
 };
 
-//  Get Single Organisation by ID
+// ✅ Get Single Organisation by ID
 export const findOrganisationById = async (id: string) => {
     try {
         if (!mongoose.Types.ObjectId.isValid(id)) return null;
@@ -32,7 +32,7 @@ export const findOrganisationById = async (id: string) => {
     }
 };
 
-//  Update Organisation
+// ✅ Update Organisation
 export const updateOrganisation = async (id: string, data: any) => {
     try {
         if (!mongoose.Types.ObjectId.isValid(id)) return null;
@@ -43,7 +43,7 @@ export const updateOrganisation = async (id: string, data: any) => {
     }
 };
 
-//  Delete Organisation
+// ✅ Delete Organisation
 export const deleteOrganisation = async (id: string) => {
     try {
         if (!mongoose.Types.ObjectId.isValid(id)) return null;
